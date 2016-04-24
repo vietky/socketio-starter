@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>SocketIO's Home page</title>
+</head>
+
+<body>
+    <div id="container">
+        <div>
+            <form id="form">
+                <input id="msg" type="text" value="" />
+                <button id="submitBtn" type="submit">Send</button>
+            </form>
+        </div>
+        <div>
+            <ul id="messages">
+            </ul>
+        </div>
+    </div>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+<script src="/socket.io/socket.io.js"></script>
+<script>
+    var socket = io('http://localhost:8080');
+    $(document).ready(function() {
+        $('#form').submit(sendMsg);
+
+        socket.on('receiveFromClient', function(data) {
+            appendMsg(data.msg);
+        });
+
+        function sendMsg(e) {
+            e.preventDefault();
+            // appendMsg($('#msg').val());
+            socket.emit('sendToServer', $('#msg').val());
+            $('#msg').val('');
+        }
+
+        function appendMsg(msg) {
+            var li = $('<li>'); //Equivalent: $(document.createElement('img'))
+            li.html(msg);
+            li.appendTo('#messages');
+        }
+    });
+</script>
+
+</html>

@@ -1,0 +1,26 @@
+{
+  "name": "socketio-starter",
+  "version": "1.0.0",
+  "description": "For those who are lazy to create his simplest socketio server :)",
+  "main": "index.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vietky/socketio-starter.git"
+  },
+  "keywords": [
+    "socketio",
+    "starter"
+  ],
+  "author": "Ky Quoc Viet",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vietky/socketio-starter/issues"
+  },
+  "homepage": "https://github.com/vietky/socketio-starter#readme",
+  "dependencies": {
+    "socket.io": "^1.4.5"
+  }
+}
